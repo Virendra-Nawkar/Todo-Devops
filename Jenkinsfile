@@ -17,8 +17,9 @@ pipeline {
 
         stage('Install & Test') {
             steps {
-		sh 'npm install'
-        	sh 'npm test -- --watchAll=false --passWithNoTests'
+                sh 'npm install'
+                sh 'CI=false npm test -- --watchAll=false --passWithNoTests'
+            }
         }
 
         stage('Docker Build') {

@@ -41,10 +41,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'aks-kubeconfig', variable: 'KUBECONFIG_CONTENT')]) {
                     writeFile file: '/tmp/aks-kubeconfig', text: env.KUBECONFIG_CONTENT
-                    sh "sed -i 's|IMAGE_PLACEHOLDER|${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}|g' k8s/deployment.yaml"
-                    sh "kubectl --kubeconfig=/tmp/aks-kubeconfig apply -f k8s/"
-                    sh "sed -i 's|${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}|IMAGE_PLACEHOLDER|g' k8s/deployment.yaml"
-                    sh "rm -f /tmp/aks-kubeconfig"
+                    sh "cat /tmp/aks-kubeconfig"
                 }
             }
         }

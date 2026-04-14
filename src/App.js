@@ -88,6 +88,7 @@ function App() {
     <div className="app-container bg-gradient-to-r from-green-400 to-blue-500 flex h-screen">
       <div className="m-auto bg-primary-600 white p-6 rounded-lg text-white max-w-md w-full">
         <h2 className="text-white text-xl font-semibold mb-4">TO DO LIST</h2>
+	   <h4 className="text-white text-xl font-semibold mb-4">By Virendra</h4>
         <Form addTodo={addTodo} 
         />
         <ul className="todos">
